@@ -5,3 +5,6 @@ unit:
 	cat units.txt
 main:
 	python main.py units.txt
+clean:
+	rm units.txt
+	rm string.pyc
