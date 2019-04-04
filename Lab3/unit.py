@@ -1,4 +1,4 @@
-from string import String
+from string import *
 
 # Unit testing framework for hangman project
 # each function should run tests with intuitive output, and printing ok for passed and 
@@ -34,7 +34,7 @@ def string_compare_test():
     string2 = String("World")
     string3 = String("Hello")
     print("Comparing 'Hello' with 'Hello'")
-    c = string1.my_string_compare(string1, string3)
+    c = my_string_compare(string1, string3)
     succ_str = 'Failed: '
     if c == 0:
         succ_str = 'ok, '
@@ -43,7 +43,7 @@ def string_compare_test():
     print(succ_str + "Expecting 0; got " + str(c))
 
     print("Comparing 'Hello' with 'World'")
-    c = string1.my_string_compare(string1, string2)
+    c = my_string_compare(string1, string2)
     succ_str = 'Failed: '
     if c < 0:
         succ_str = 'ok, '

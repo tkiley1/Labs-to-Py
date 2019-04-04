@@ -32,22 +32,22 @@ class String:
 
 	# This function will lexicographically compare string objects.  It will return 0 if the strings are equal;
 	# > 0 if left is smaller than right, and <0 if right is smaller than left.
-	def my_string_compare(self, stringL, stringR):
-		if not (isinstance(stringL, String) or isinstance(stringR, String)):
-			return None
+def my_string_compare(stringL, stringR):
+	if not (isinstance(stringL, String) or isinstance(stringR, String)):
+		return None
 
-		if stringL.get_size() < stringR.get_size():
-			return -1
+	if stringL.get_size() < stringR.get_size():
+		return -1
 
-		elif stringL.get_size() > stringR.get_size():
-			return 1
+	elif stringL.get_size() > stringR.get_size():
+		return 1
 
-		else:
-			for i in range(stringL.get_size()):
-				if stringL._data[i] < stringR._data[i]:
-					return -1
-				if stringL._data[i] > stringR._data[i]:
-					return 1
+	else:
+		for i in range(stringL.get_size()):
+			if stringL._data[i] < stringR._data[i]:
+				return -1
+			if stringL._data[i] > stringR._data[i]:
+				return 1
 
-		return 0
+	return 0
 		

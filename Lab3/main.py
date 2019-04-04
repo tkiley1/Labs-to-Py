@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from string import String
+from string import *
 import sys
 
 def main():
@@ -10,7 +10,14 @@ def main():
 		sys.exit(1)
 	else:
 		print("All Unit Tests Passed")
-	s1 = String("Hello World")
+	s1 = String()
+	istream.close()
+	istream = open("dict.txt", 'r')
+	my_string_extraction(s1,istream)
+	print(s1._data)
+	s1 = String()
+	my_string_extraction(s1,istream)
+	print(s1._data)
 
 
 if __name__ == '__main__':

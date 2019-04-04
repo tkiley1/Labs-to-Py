@@ -1,0 +1,15 @@
+instantiating string 'Hello'
+ok, string instantiated
+ok, string size stored and retrieved correctly
+ok, string capacity stored and retrieved correctly
+
+
+
+Instantiating strings 'Hello', 'World', and 'Hello'
+Comparing 'Hello' with 'Hello'
+ok, Expecting 0; got 0
+Comparing 'Hello' with 'World'
+ok, Expecting integer less than 0; got -1
+
+
+

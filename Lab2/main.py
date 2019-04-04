@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from string import String
+from string import *
 import sys
 
 def main():
