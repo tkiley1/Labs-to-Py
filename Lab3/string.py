@@ -5,9 +5,6 @@
 
 class String:
 	
-	# This is the default constructor  
-	# This method will instantiate and return a string object with size 0 and capacity 7
-	
 	# Returns the value that represents the size of the string
 	def get_size(self):
 		return self._size
@@ -16,9 +13,10 @@ class String:
 	def get_capacity(self):
 		return self._capacity
 	
-	# This is the custom initializer.  This method will instantiate a string object that represents the 
+	# This is the custom initializer and the default constructor.  This method will instantiate a string object that represents the 
 	# string passed in by the user.  It will initialize size to be the length of the string, and capacity to 
 	# be the length of the string + 1
+	# if no string is passed, it will instantiate the string with a capacity of 7, size of 0 and empty data
 	def __init__(self, string=None):
 		if string == None:
 			self._capacity = 7
@@ -54,6 +52,11 @@ def my_string_compare(stringL, stringR):
 
 	return 0
 
+
+# This function takes a String object and an active file object. It will read from the file object
+# ignoring leading whitespace, and then reading non-whitepsace chatachters until it encounters another 
+# whitespace character, effectively reading one word from the file.  It will then fill the String object
+# with the extracted string.  It will return True on success, and False on failure.
 def my_string_extraction(string, file):
 	while(1):
 		char = file.read(1)
@@ -74,5 +77,8 @@ def my_string_extraction(string, file):
 	if string.get_size() == 0:
 		return False
 	return True
+
+def my_string_insertion(string, stream):
+	return
 
 	
