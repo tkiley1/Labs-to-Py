@@ -53,8 +53,26 @@ def string_compare_test():
     print("\n\n")
     return errors > 0
 
+def string_insert_test():
+    errors = 0
+    s1 = String("The quick brown fox")
+    fp = open('dict.txt', 'w')
+    print("Writing string to file dict.txt")
+    t = my_string_insertion(s1, fp)
+    if t:
+        print ("Ok, expected true got True")
+    else:
+        print("Failed, expected True got False")
+        errors = errors + 1
+    return errors > 0
 
-test_list = [string_inst_test, string_compare_test]
+def string_extract_test():
+    s1 = String()
+    fp = open('dict.txt', 'r')
+    my_string_extraction(s1, fp)
+    my_string_insertion(s1)
+    return 0
+test_list = [string_inst_test, string_compare_test, string_insert_test, string_extract_test]
 
 def run_tests():
     failed = 0

@@ -10,14 +10,13 @@ def main():
 		sys.exit(1)
 	else:
 		print("All Unit Tests Passed")
+	fp = open("dictionary.txt", 'r')
 	s1 = String()
-	istream.close()
-	istream = open("dict.txt", 'r')
-	my_string_extraction(s1,istream)
-	print(s1._data)
-	s1 = String()
-	my_string_extraction(s1,istream)
-	print(s1._data)
+	while(my_string_extraction(s1,fp)):
+		if s1.get_size() > 20:
+			my_string_insertion(s1)
+		s1 = String()
+
 
 
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-
+import sys
 # String Class - has a capacity, a size, and an array that holds the charachters of the string.
 #
 #
@@ -58,13 +58,16 @@ def my_string_compare(stringL, stringR):
 # whitespace character, effectively reading one word from the file.  It will then fill the String object
 # with the extracted string.  It will return True on success, and False on failure.
 def my_string_extraction(string, file):
-	while(1):
+	last_pos = file.tell()
+	char = file.read(1)
+	while(char.isspace() or char == '\n' or char == '\t'):
+		# print("Looping through Whitespace")
+		if char == '':
+			return False
+		last_pos = file.tell()
 		char = file.read(1)
-		if not(char.isspace()):
-			break
-	while(1):
-		if char.isspace():
-			break
+	while(not(char.isspace()) and not(char == '\n') and not(char == '\t') and (not char == '')):
+		# print("Looping Through String")
 		if string.get_capacity() <= string.get_size()+1:
 			tmp = string._data
 			string._capacity = string._capacity * 2
@@ -73,12 +76,27 @@ def my_string_extraction(string, file):
 				string._data[i] = tmp[i]
 		string._data[string.get_size()] = char
 		string._size = string._size + 1
+		lastpos = file.tell()
 		char = file.read(1)
 	if string.get_size() == 0:
 		return False
+	if char == '':
+		return True
+	# file.seek(last_pos)
 	return True
 
-def my_string_insertion(string, stream):
-	return
+# This function is intended to take in a string object and a stream, and print the contents of the string
+# to the specified stream.  If no file pointer is provided, the function will output the contents of the 
+# string to stdout
+def my_string_insertion(string, stream=None):
+	if stream == None:
+		for i in string._data:
+			if not(i == None):
+				sys.stdout.write(i)
+	else:
+		for i in string._data:
+			if not(i == None):
+				stream.write(i)
+	return True
 
 	
