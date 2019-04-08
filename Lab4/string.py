@@ -101,7 +101,18 @@ def my_string_insertion(string, stream=None):
 
 	
 def my_string_push_back(string, char):
-	return
+	if string._size >= string._capacity -1:
+		tmp = string._data
+		string._capacity = string._capacity * 2
+		string._data = [None] * string._capacity
+		for i in range (string._size):
+			string._data[i] = tmp[i]
+		string[string._size] = char
+		string._size = string._size + 1
+	else:
+		string._data[string._size] = char
+		string._size = string._size + 1
+	return True
 
 def my_string_pop_back(string):
 	return

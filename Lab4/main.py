@@ -14,6 +14,7 @@ def main():
 	s1 = String()
 	while(my_string_extraction(s1,fp)):
 		if s1.get_size() > 20:
+			my_string_push_back(s1, '#')
 			my_string_insertion(s1)
 		s1 = String()
 
