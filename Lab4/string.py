@@ -99,7 +99,10 @@ def my_string_insertion(string, stream=None):
 				stream.write(i)
 	return True
 
-	
+# This function takes a valid string object, and a charachter. 
+# upon successful completion, the charachter will be placed at the end of the string,
+# and the size of the string will grow accordingly.  If the capacity of the string is not enough to hold
+# the string + the new charachter, the string object will be resized accordingly
 def my_string_push_back(string, char):
 	if string._size >= string._capacity -1:
 		tmp = string._data
@@ -113,15 +116,32 @@ def my_string_push_back(string, char):
 		string._data[string._size] = char
 		string._size = string._size + 1
 	return True
-
+# This function, given a valid string object will remove the last charachter of the 
+# string in constant time.  This is guaranteed to not cause a resize operation.
+# return True on success, False if string is empty.
 def my_string_pop_back(string):
-	return
+	if string._size <= 0:
+		return False
+	del string._data[size]
+	string._size = string._size - 1
+	return True
 
+# Given a valid string object, this function will return the character at the given index.
+# If the index is out of bounds, return None.
 def my_string_at(string, index):
-	return
+	if index >= string._capacity:
+		return None
+	return string._data[index]
+
 
 def my_string_concat(string1, string2):
 	return
 
+# Given a valid string object, will return True if the string is empty, and 
+# return False if the string is not
 def my_string_empty(string):
-	return
+	if not isinstance(String, string):
+		return False
+	if string._size <= 0:
+		return True
+	return False
