@@ -1,4 +1,4 @@
-import sys
+import sys, copy
 # String Class - has a capacity, a size, and an array that holds the charachters of the string.
 #
 #
@@ -58,7 +58,7 @@ def my_string_compare(stringL, stringR):
 # whitespace character, effectively reading one word from the file.  It will then fill the String object
 # with the extracted string.  It will return True on success, and False on failure.
 def my_string_extraction(string, file):
-	if not isinstance(String, string):
+	if not isinstance(string, String):
 		return False
 	last_pos = file.tell()
 	char = file.read(1)
@@ -91,7 +91,7 @@ def my_string_extraction(string, file):
 # to the specified stream.  If no file pointer is provided, the function will output the contents of the 
 # string to stdout
 def my_string_insertion(string, stream=None):
-	if not isinstance(String, string):
+	if not isinstance(string, String):
 		return False
 	if stream == None:
 		for i in string._data:
@@ -144,17 +144,17 @@ def my_string_concat(string1, string2):
 # Given a valid string object, will return True if the string is empty, and 
 # return False if the string is not
 def my_string_empty(string):
-	if not isinstance(String, string):
+	if not isinstance(string, String):
 		return False
 	if string._size <= 0:
 		return True
 	return False
-
+ 
+# This function will replace the string object left with the contents of right.
+# left and right must both be valid string objects
 def my_string_assignment(left, right):
-	if not isinstance(String, right):
+	if not isinstance(right, String) or not isinstance(left, String):
 		return False
-	if not isinstance(String, left):
-		left = copy.deepcopy(right)
 	else:
 		left._data = [None] * right._size
 		for i in range(right._size):

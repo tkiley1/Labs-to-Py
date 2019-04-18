@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from string import *
-import sys
+import sys, copy
 
 def main():
 
@@ -10,13 +10,17 @@ def main():
 		sys.exit(1)
 	else:
 		print("All Unit Tests Passed")
-	fp = open("dictionary.txt", 'r')
-	s1 = String()
-	while(my_string_extraction(s1,fp)):
-		if s1.get_size() > 20:
-			my_string_push_back(s1, '#')
-			my_string_insertion(s1)
-		s1 = String()
+	head_string = String("Copy Me")
+	s_list = [None] * 100
+	for i in range(99):
+		c = String()
+		my_string_assignment(c, head_string)
+		s_list[i] = c
+	for i in s_list:
+		my_string_insertion(i)
+	
+
+
 
 
 
