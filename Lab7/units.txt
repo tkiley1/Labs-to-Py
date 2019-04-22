@@ -15,4 +15,3 @@ ok, Expecting integer less than 0; got -1
 
 Writing string to file dict.txt
 Ok, expected true got True
-ok: expected true got True

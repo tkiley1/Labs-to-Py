@@ -66,19 +66,19 @@ def string_insert_test():
         errors = errors + 1
     return errors > 0
 
-def string_extract_test():
-    s1 = String()
-    errors = 0
-    fp = open('dict.txt', 'r')
-    t = my_string_extraction(s1, fp)
-    if t:
-	print("ok: expected true got True")
-    else:
-	print("Failed: expected true got False")
-	errors = errors + 1
-    return errors > 0
+#def string_extract_test():
+#    s1 = String()
+#    errors = 0
+#    fp = open('dict.txt', 'r')
+#    t = my_string_extraction(s1, fp)
+#    if t:
+#	print("ok: expected true got True")
+#    else:
+#	print("Failed: expected true got False")
+#	errors = errors + 1
+#    return errors > 0
 
-test_list = [string_inst_test, string_compare_test, string_insert_test, string_extract_test]
+test_list = [string_inst_test, string_compare_test, string_insert_test]
 
 def run_tests():
     failed = 0

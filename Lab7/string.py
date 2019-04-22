@@ -114,7 +114,7 @@ def my_string_push_back(string, char):
 		string._data = [None] * string._capacity
 		for i in range (string._size):
 			string._data[i] = tmp[i]
-		string[string._size] = char
+		string._data[string._size] = char
 		string._size = string._size + 1
 	else:
 		string._data[string._size] = char
@@ -162,3 +162,11 @@ def my_string_assignment(left, right):
 	if my_string_compare(left, right) != True:
 		return False
 	return True
+
+def my_string_c_string(string):
+	c = ''
+	for i in string._data:
+		if i == None:
+			return c
+		else:
+			c = c + i
