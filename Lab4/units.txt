@@ -10,9 +10,19 @@ Comparing 'Hello' with 'Hello'
 ok, Expecting 0; got 0
 Comparing 'Hello' with 'World'
 ok, Expecting integer less than 0; got -1
+Comparing 'World' with 'Hello'
+ok, Expecting integer Greater than 0; got 1
 
 
 
 Writing string to file dict.txt
 Ok, expected true got True
-The
+Attempting to read the first word from 'dict.txt'
+Success, word read correctly.
+checking the second index of the string "Hello!"
+ok, expecting H got H
+Checking an out of bounds index
+ok, out of bounds case handled correctly
+Checking edge cases
+ok, edge case handled correctly.
+ok, edge case handled correctly

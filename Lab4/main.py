@@ -12,11 +12,15 @@ def main():
 		print("All Unit Tests Passed")
 	fp = open("dictionary.txt", 'r')
 	s1 = String()
-	while(my_string_extraction(s1,fp)):
-		if s1.get_size() > 20:
-			my_string_push_back(s1, '#')
-			my_string_insertion(s1)
-		s1 = String()
+	# while(my_string_extraction(s1,fp)):
+	# 	if s1.get_size() > 20:
+	# 		my_string_push_back(s1, '#')
+	# 		my_string_insertion(s1)
+	s1 = String("Hello ")
+	s2 = String("World!")
+	my_string_concat(s1,s2)
+	my_string_insertion(s1)
+	print (s1._data)
 
 
 

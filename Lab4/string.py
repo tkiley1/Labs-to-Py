@@ -110,7 +110,7 @@ def my_string_push_back(string, char):
 		string._data = [None] * string._capacity
 		for i in range (string._size):
 			string._data[i] = tmp[i]
-		string[string._size] = char
+		string._data[string._size] = char
 		string._size = string._size + 1
 	else:
 		string._data[string._size] = char
@@ -133,9 +133,20 @@ def my_string_at(string, index):
 		return None
 	return string._data[index]
 
-
+# Given two valid string objects, this function will concatenate the first and second strings, with 
+# the result being stored in string1.  This guarantees no change to string2.  Return True on success,
+# and False on failure.
 def my_string_concat(string1, string2):
-	return
+	tmp = string1._data
+	tsize  = string1._size
+	string1._data = [None] * (string1._size + string2._size + 1)
+	string1._size = string1._size + string2._size
+	for i in range(tsize):
+		string1._data[i] = tmp[i]
+	i = i + 1
+	for j in range(string2._size):
+		string1._data[j+i] = string2._data[j]
+	return True
 
 # Given a valid string object, will return True if the string is empty, and 
 # return False if the string is not
@@ -145,3 +156,14 @@ def my_string_empty(string):
 	if string._size <= 0:
 		return True
 	return False
+
+# This function, given a valid String object, will translate it into a python string.
+def my_string_c_string(string):
+	if not(isinstance(string, String)):
+		return None
+	c = ''
+	for i in string._data:
+		if i == None:
+			return c
+		else:
+			c = c + i
