@@ -163,7 +163,10 @@ def my_string_assignment(left, right):
 		return False
 	return True
 
+# This function, given a valid String object, will translate it into a python string.
 def my_string_c_string(string):
+	if not(isinstance(string, String)):
+		return None
 	c = ''
 	for i in string._data:
 		if i == None:

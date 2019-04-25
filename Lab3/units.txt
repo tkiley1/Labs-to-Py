@@ -15,3 +15,7 @@ ok, Expecting integer Greater than 0; got 1
 
 
 
+Writing string to file dict.txt
+Ok, expected true got True
+Attempting to read the first word from 'dict.txt'
+Success, word read correctly.

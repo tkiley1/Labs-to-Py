@@ -6,7 +6,7 @@ from string import *
 # were one or more errors.
 
 def string_inst_test():
-    errors = 0
+    errors = 0 
     print ("instantiating string 'Hello'")
     string = String("Hello")
     if isinstance(string, String):
@@ -14,15 +14,17 @@ def string_inst_test():
     else:
         print("Failed - string not instantiated correctly")
         errors = errors + 1
-    if string.get_size() == 5: 
+    size = string.get_size()
+    if size == 5: 
         print("ok, string size stored and retrieved correctly")
     else:
-        print("Failed: string size incorrect")
+        print("Failed: string size incorrect: " + str(size))
         errors = errors + 1
-    if string.get_capacity() == 6:
+    cap = string.get_capacity() 
+    if cap == 6:
         print("ok, string capacity stored and retrieved correctly")
     else:
-        print("Failed: string capacity incorrect")
+        print("Failed: string capacity incorrect : " + str(cap))
         errors = errors + 1
     print("\n\n")
     return errors > 0
@@ -50,6 +52,15 @@ def string_compare_test():
     else:
         errors = errors + 1
     print(succ_str + "Expecting integer less than 0; got " + str(c))
+
+    print("Comparing 'World' with 'Hello'")
+    c = my_string_compare(string2, string1)
+    succ_str = 'Failed: '
+    if c > 0:
+        succ_str = 'ok, '
+    else:
+        errors = errors + 1
+    print(succ_str + "Expecting integer Greater than 0; got " + str(c))
     print("\n\n")
     return errors > 0
 

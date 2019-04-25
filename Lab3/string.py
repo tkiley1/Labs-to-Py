@@ -89,6 +89,8 @@ def my_string_extraction(string, file):
 # to the specified stream.  If no file pointer is provided, the function will output the contents of the 
 # string to stdout
 def my_string_insertion(string, stream=None):
+	if not(isinstance(string, String)):
+		return False
 	if stream == None:
 		for i in string._data:
 			if not(i == None):

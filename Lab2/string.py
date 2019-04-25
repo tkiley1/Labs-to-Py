@@ -8,7 +8,6 @@ class String:
 	# This is the default constructor  
 	# This method will instantiate and return a string object with size 0 and capacity 7
 	def __init__(self):
-		print("IN INIT")
 		self._capacity = 7
 		self._size = 0
 	
