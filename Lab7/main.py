@@ -57,9 +57,10 @@ def main():
 
 	# loop for the number of guesses that the user wants to play for
 	guessed = []
-	for i in range(num_guesses):
-		print("You have " + str(num_guesses-1) + "Guesses remaining")
+	while(1):
+		print("You have " + str(num_guesses) + "Guesses remaining")
 		string_check = 0
+		guess_check = 0
 		my_string_insertion(p_key)
 		for i in range(p_key.get_size()):
 			if my_string_at(p_key,i) == '-':
@@ -106,12 +107,29 @@ def main():
 			else:
 				my_string_push_back(new_string, my_string_at(c, i))
 		my_string_assignment(p_key, new_string)
+		for i in range(p_key.get_size()):
+			if my_string_at(p_key,i) == guess:
+                        	print("Here")
+                        	guess_check = 1
+		if guess_check == 0:
+                	num_guesses = num_guesses - 1
+		if num_guesses == 0:
+			break
 	for i in range(p_key.get_size()):
 				if my_string_at(p_key,i) == '-':
 					string_check = 1
+				if my_string_at(p_key,i) == guess:
+					print("Here")
+					guess_check = 1
 	if string_check == 0:
 		print("You Win!")
 		return
+	if guess_check == 0:
+		num_guesses = num_guesses - 1
+	if num_guesses == 0:
+		print("You Lose...")
+		return
+		
 	print("Sorry, you lose! The word was " + my_string_c_string(selected_bucket[0]))
 
 
