@@ -1,3 +1,4 @@
+Testing string instantiation, size and capacity
 instantiating string 'Hello'
 ok, string instantiated
 ok, string size stored and retrieved correctly
@@ -5,14 +6,85 @@ ok, string capacity stored and retrieved correctly
 
 
 
+Testing string compare function
 Instantiating strings 'Hello', 'World', and 'Hello'
 Comparing 'Hello' with 'Hello'
 ok, Expecting 0; got 0
 Comparing 'Hello' with 'World'
 ok, Expecting integer less than 0; got -1
+Comparing 'World' with 'Hello'
+ok, Expecting integer Greater than 0; got 1
 
 
 
+Testing string insertion function
 Writing string to file dict.txt
 Ok, expected true got True
-ok: expected true got True
+
+
+
+Testing string extraction function
+Attempting to read the first word from 'dict.txt'
+Success, word read correctly.
+
+
+
+Testing my string at function
+checking the second index of the string "Hello!"
+ok, expecting H got H
+Checking an out of bounds index
+ok, out of bounds case handled correctly
+Checking edge cases
+ok, edge case handled correctly.
+ok, edge case handled correctly
+
+
+
+Testing string push back function
+Testing null string case
+ok, expected False got False
+Testing empty string case
+ok, expected true and '1', got true and '1'
+Testing regular string case
+ok, expected True and '!' and got True and '!'
+
+
+
+Testing string pop back function
+Testing empty string
+ok, expected False got False
+Testing null case
+ok, expected False got False
+Testing valid string case
+ok, expected True got True
+
+
+
+Testing my string c string function
+Testing none case
+ok, expected None got None
+Testing valid string case
+ok, expected 'Hello!' got Hello!
+Testing empty string case
+ok, expected '' got ''
+
+
+
+Testing my string empty function
+Testing none case
+ok, expected false got false
+Testing empty case
+ok, expected True got True
+Testing non-empty case
+ok, expected False got False
+
+
+
+Testing string assignment function
+Testing none case
+ok, expected False got False
+Testing valid strings
+ok, expected True got True
+
+
+

@@ -1,4 +1,4 @@
-import sys, copy
+import sys
 # String Class - has a capacity, a size, and an array that holds the charachters of the string.
 #
 #
@@ -108,13 +108,15 @@ def my_string_insertion(string, stream=None):
 # and the size of the string will grow accordingly.  If the capacity of the string is not enough to hold
 # the string + the new charachter, the string object will be resized accordingly
 def my_string_push_back(string, char):
+	if not isinstance(string, String):
+		return False
 	if string._size >= string._capacity -1:
 		tmp = string._data
 		string._capacity = string._capacity * 2
 		string._data = [None] * string._capacity
 		for i in range (string._size):
 			string._data[i] = tmp[i]
-		string[string._size] = char
+		string._data[string._size] = char
 		string._size = string._size + 1
 	else:
 		string._data[string._size] = char
@@ -124,22 +126,37 @@ def my_string_push_back(string, char):
 # string in constant time.  This is guaranteed to not cause a resize operation.
 # return True on success, False if string is empty.
 def my_string_pop_back(string):
+	if not isinstance(string, String):
+		return False
 	if string._size <= 0:
 		return False
-	del string._data[size]
+	del string._data[string._size]
 	string._size = string._size - 1
 	return True
 
 # Given a valid string object, this function will return the character at the given index.
-# If the index is out of bounds, return None.
+# If the index is out of bounds, return False.
 def my_string_at(string, index):
 	if index >= string._capacity:
-		return None
+		return False
 	return string._data[index]
 
-
+# Given two valid string objects, this function will concatenate the first and second strings, with 
+# the result being stored in string1.  This guarantees no change to string2.  Return True on success,
+# and False on failure.
 def my_string_concat(string1, string2):
-	return
+	if not(isinstance(string1, String)) or not(isinstance(string2, String)):
+		return False
+	tmp = string1._data
+	tsize  = string1._size
+	string1._data = [None] * (string1._size + string2._size + 1)
+	string1._size = string1._size + string2._size
+	for i in range(tsize):
+		string1._data[i] = tmp[i]
+	i = i + 1
+	for j in range(string2._size):
+		string1._data[j+i] = string2._data[j]
+	return True
 
 # Given a valid string object, will return True if the string is empty, and 
 # return False if the string is not
@@ -149,19 +166,6 @@ def my_string_empty(string):
 	if string._size <= 0:
 		return True
 	return False
- 
-# This function will replace the string object left with the contents of right.
-# left and right must both be valid string objects
-def my_string_assignment(left, right):
-	if not isinstance(right, String) or not isinstance(left, String):
-		return False
-	else:
-		left._data = [None] * right._size
-		for i in range(right._size):
-			left._data[i] = right._data[i]
-	if my_string_compare(left, right) != True:
-		return False
-	return True
 
 # This function, given a valid String object, will translate it into a python string.
 def my_string_c_string(string):
@@ -173,3 +177,17 @@ def my_string_c_string(string):
 			return c
 		else:
 			c = c + i
+# This function will replace the string object left with the contents of right.
+# left and right must both be valid string objects
+def my_string_assignment(left, right):
+        if not isinstance(right, String) or not isinstance(left, String):
+                return False
+        else:
+                left._data = [None] * right._capacity
+                left._size = right._size
+                left.capacity = right._capacity
+                for i in range(right._size):
+                        left._data[i] = right._data[i]
+        if my_string_compare(left, right) != 0:
+                return False
+        return True
