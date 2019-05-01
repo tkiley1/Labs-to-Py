@@ -26,3 +26,15 @@ ok, out of bounds case handled correctly
 Checking edge cases
 ok, edge case handled correctly.
 ok, edge case handled correctly
+Testing null string case
+ok, expected False got False
+Testing empty string case
+ok, expected true and '1', got true and '1'
+Testing regular string case
+ok, expected True and '!' and got True and '!'
+Testing empty string
+ok, expected False got False
+Testing null case
+ok, expected False got False
+Testing valid string case
+ok, expected True got True
