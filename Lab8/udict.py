@@ -1,6 +1,8 @@
 from dictnode import *
 import copy
 
+# This udict class is our own personal 'associatave array' or dictionary that autobalances into a max heap
+# this improves the search time of our game when trying to find the largest bucket of strings.
 class udict:
     # Initialization function - all we need is a list that holds our key value dictnodes
     def __init__(self):

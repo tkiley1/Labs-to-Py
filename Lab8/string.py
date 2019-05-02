@@ -1,7 +1,7 @@
 import sys
 # String Class - has a capacity, a size, and an array that holds the charachters of the string.
-#
-#
+# The class also includes a number of helper functions that give us the functionality we need to
+# create the evil hangman game.
 
 class String:
 	

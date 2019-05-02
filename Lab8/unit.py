@@ -5,6 +5,8 @@ from string import *
 # Failed for failed tests.  Each function should return 0 if test was passed, and 1 if there 
 # were one or more errors.
 
+# This code can be changed to print out the total number of errors as well.
+
 def string_inst_test():
     errors = 0 
     print("Testing string instantiation, size and capacity")
